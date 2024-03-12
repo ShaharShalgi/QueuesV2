@@ -135,6 +135,65 @@ namespace Queues
             }
             return newQ;
         }
-
+        public static int PlaceInQueue(Queue<int> queue, int num)
+        {
+            int counter = 0;
+            int place = 0;
+           Queue<int> temp = Copy(queue);
+            while (!temp.IsEmpty())
+            {
+                counter++;
+                if(temp.Remove() == num)
+                {
+                    place = counter; 
+                }
+            }
+            return place;
+        }
+        public static int ValueInQueue(Queue<int> queue, int k) 
+        {
+            int counter = 0;
+            
+            Queue<int> temp = Copy(queue);
+            while (!temp.IsEmpty())
+            {
+                counter++;
+                if(counter== k)
+                {
+                    return temp.Head();
+                }
+                temp.Remove();
+            }
+            return -1;
+        }
+        public static int LongestRezef(Queue<int> queue)
+        {
+            int longestRezef = -1;
+            int currentRezef = 1;
+            Queue<int> temp = Copy(queue);
+            int previous = temp.Remove();
+            while (!temp.IsEmpty())
+            {
+                if(previous== temp.Head()) 
+                {
+                    currentRezef++;
+                }
+                if (currentRezef >= longestRezef)
+                    longestRezef = currentRezef;
+                if(previous != temp.Head())
+                    currentRezef= 1;
+                previous = temp.Remove() ;
+            }
+            return longestRezef;
+        }
+        public static bool isExistRec(Queue<int> queue, int num)
+        {
+            if(queue.IsEmpty())
+                return false;
+            if (queue.Head() == num)
+                return true;
+            queue.Remove();
+            return isExistRec(queue, num);
+        }
     }
 }
