@@ -74,7 +74,17 @@ namespace Queues
             }
             return false;
         }
-       
+        public static int[] GetSides(int x)
+        {
+            int[] sides = new int[2];
+            sides[1] = x % 10;
+            while (x / 10 != 0)
+            {
+                x /= 10;
+            }
+            sides[0] = x;
+            return sides;
+        }
 
 
 
@@ -104,19 +114,21 @@ namespace Queues
             //node1.SetNext(new Node<int>(4));
             //Console.WriteLine(IsSubChain(node1, node));
             //Console.WriteLine(node);
-            Queue<int> q2 = new Queue<int>();
-            q2.Insert(2);
-            q2.Insert(5);
-            q2.Insert(8);
-            q2.Insert(11);
-            if (QueueHelper.Serial(q2) == null)
-                Console.WriteLine("null");
-            else
-            {
-                Console.WriteLine( QueueHelper.Serial(q2).ToString() ); 
-            }
-            Console.WriteLine(q2.ToString());
-            
+            //Queue<int> q2 = new Queue<int>();
+            //q2.Insert(2);
+            //q2.Insert(5);
+            //q2.Insert(8);
+            //q2.Insert(11);
+            //if (QueueHelper.Serial(q2) == null)
+            //    Console.WriteLine("null");
+            //else
+            //{
+            //    Console.WriteLine( QueueHelper.Serial(q2).ToString() ); 
+            //}
+            //Console.WriteLine(q2.ToString());
+            int[] arr = GetSides(5072);
+            Console.WriteLine(arr[0]);
+            Console.WriteLine(arr[1]);
 
 
         }
