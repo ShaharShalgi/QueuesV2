@@ -74,6 +74,8 @@ namespace Queues
             }
             return false;
         }
+       
+
 
 
         static void Main(string[] args)
@@ -91,17 +93,31 @@ namespace Queues
             //Console.WriteLine(q1);
             //Console.WriteLine(QueueHelper.isExistRec(q1, 9));
             //Console.WriteLine(q1);
-            Node<int> node = new Node<int>(3);
-            node.SetNext(new Node<int>(-4));
-            node.GetNext().SetNext(new Node<int>(4));
-            node.GetNext().GetNext().SetNext(new Node<int>(41));
-            node.GetNext().GetNext().GetNext().SetNext(new Node<int>(15));
-            node.GetNext().GetNext().GetNext().GetNext().SetNext(new Node<int>(2));
-            //Console.WriteLine(IsArranged(node));
-            Node<int> node1 = new Node<int>(-4);
-            node1.SetNext(new Node<int>(4));
-            Console.WriteLine(IsSubChain(node1, node));
-            Console.WriteLine(node);
+            //Node<int> node = new Node<int>(3);
+            //node.SetNext(new Node<int>(-4));
+            //node.GetNext().SetNext(new Node<int>(4));
+            //node.GetNext().GetNext().SetNext(new Node<int>(41));
+            //node.GetNext().GetNext().GetNext().SetNext(new Node<int>(15));
+            //node.GetNext().GetNext().GetNext().GetNext().SetNext(new Node<int>(2));
+            ////Console.WriteLine(IsArranged(node));
+            //Node<int> node1 = new Node<int>(-4);
+            //node1.SetNext(new Node<int>(4));
+            //Console.WriteLine(IsSubChain(node1, node));
+            //Console.WriteLine(node);
+            Queue<int> q2 = new Queue<int>();
+            q2.Insert(2);
+            q2.Insert(5);
+            q2.Insert(8);
+            q2.Insert(11);
+            if (QueueHelper.Serial(q2) == null)
+                Console.WriteLine("null");
+            else
+            {
+                Console.WriteLine( QueueHelper.Serial(q2).ToString() ); 
+            }
+            Console.WriteLine(q2.ToString());
+            
+
 
         }
     }

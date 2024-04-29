@@ -195,5 +195,35 @@ namespace Queues
             queue.Remove();
             return isExistRec(queue, num);
         }
+        public static Queue<int> Serial(Queue<int> q)
+        {
+
+            if (!IsHeshbonit(q))
+            {
+                return null;
+            }
+            Queue<int> queue = new Queue<int>();
+            queue.Insert(q.Head());
+            Queue<int> c= Copy(q);
+            queue.Insert((c.Remove() - c.Head())*-1);
+            queue.Insert(Count(q));
+            return queue;
+        }
+        public static bool IsHeshbonit(Queue<int> q)
+        {
+            
+            Queue<int> copy = Copy(q);
+            Queue<int> copy2 = Copy(q);
+            copy.Remove();
+            int hefresh = copy.Remove() - copy2.Remove();
+            while (!copy.IsEmpty())
+            {
+                if((copy.Remove() - copy2.Remove() != hefresh))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
