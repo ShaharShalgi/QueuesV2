@@ -209,6 +209,34 @@ namespace Queues
             queue.Insert(Count(q));
             return queue;
         }
+        public static void clean(Queue<char> q)
+        {
+            Queue<char> temp = new Queue<char>();
+            Queue<char> future = Copy(q);
+            future.Remove();
+            
+            while(!future.IsEmpty())
+            {
+                if(q.Head() == '#'|| future.Head() == '#')
+                {
+                    q.Remove();
+                    
+                }
+                else
+                {
+                    temp.Insert(q.Remove());
+                }
+                future.Remove();
+            }
+            if (q.Head() == '#')
+                q.Remove();
+            else
+                temp.Insert(q.Remove());
+            while (!temp.IsEmpty())
+            {
+                q.Insert(temp.Remove());
+            }
+        }
         public static bool IsHeshbonit(Queue<int> q)
         {
             

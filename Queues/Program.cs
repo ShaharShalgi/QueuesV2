@@ -115,7 +115,17 @@ namespace Queues
             //    Console.WriteLine( QueueHelper.Serial(q2).ToString() ); 
             //}
             //Console.WriteLine(q2.ToString());
-           
+           Queue<Char> queue = new Queue<Char>();
+            queue.Insert('#');
+            queue.Insert('a');
+            queue.Insert('#');
+            queue.Insert('#');
+            queue.Insert('a');
+            queue.Insert('b');
+            queue.Insert('c');
+            queue.Insert('#');
+            QueueHelper.clean(queue);
+            Console.WriteLine(queue);
 
 
         }
